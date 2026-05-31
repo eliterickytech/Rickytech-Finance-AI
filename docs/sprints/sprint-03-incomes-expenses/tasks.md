@@ -1,37 +1,39 @@
 # Sprint 3 - Tasks
 
 > Estimativa: **42 pts**
+>
+> _Checkboxes atualizadas em 2026-05-31 conforme auditoria do código-fonte._
 
 ## US-S3-01 - Base FinancialTransaction (5 pts)
-- [ ] Classe abstrata `FinancialTransaction : BaseEntity` com campos comuns
-- [ ] Strategy de discriminação (TPH) para Income/Expense
+- [x] Classe abstrata `FinancialTransaction : BaseEntity` com campos comuns
+- [x] Strategy de discriminação (TPH) para Income/Expense
 
 ## US-S3-02 - Entidades Income / Expense (5 pts)
-- [ ] `Income : FinancialTransaction`
-- [ ] `Expense : FinancialTransaction` com `PaymentMethod`
-- [ ] Relacionamentos com Category e Bank
+- [x] `Income : FinancialTransaction`
+- [x] `Expense : FinancialTransaction` com `PaymentMethod`
+- [x] Relacionamentos com Category e Bank
 
 ## US-S3-03 - Recorrência (8 pts)
-- [ ] Enum `RecurrenceFrequency`
-- [ ] Service `IRecurrenceProjector` em Application
-- [ ] Comando `GenerateUpcomingTransactionsCommand` (gera próximos N)
+- [x] Enum `RecurrenceFrequency`
+- [x] Service `IRecurrenceProjector` em Application (impl. `RecurrenceProjector`)
+- [ ] Comando `GenerateUpcomingTransactionsCommand` (gera próximos N) — **não implementado**
 
 ## US-S3-04 - Commands + Queries Income (5 pts)
-- [ ] CreateIncome / UpdateIncome / DeleteIncome / DuplicateIncome
-- [ ] GetIncomeById / GetIncomes (com filtros)
+- [x] CreateIncome / UpdateIncome / DeleteIncome — _falta `DuplicateIncome`_
+- [ ] GetIncomeById / GetIncomes — **só `GetIncomes` (lista) existe**
 
 ## US-S3-05 - Commands + Queries Expense (5 pts)
-- [ ] Idem para despesas + endpoint de anexo
+- [x] CRUD de despesas (`CrudExpenseCommands`, `GetExpensesQueries`) — _falta endpoint de anexo (upload)_
 
 ## US-S3-06 - Controllers (3 pts)
-- [ ] `ReceitasController` + `DespesasController`
+- [x] `ReceitasController` + `DespesasController`
 
 ## US-S3-07 - Recalcular saldo (5 pts)
-- [ ] Método `Bank.CalculateCurrentBalance(transactions)` ou QueryService
+- [ ] Método `Bank.CalculateCurrentBalance(transactions)` ou QueryService — **não encontrado**
 - [ ] Index em `BankId + Date` para performance
 
 ## US-S3-08 - Migration (2 pts)
-- [ ] `20260629_0000_Sprint03_IncomesExpenses`
+- [ ] `20260629_0000_Sprint03_IncomesExpenses` — **NÃO gerada**
 
 ## US-S3-09 - Testes (4 pts)
-- [ ] Unit + Integration + API tests do happy path e edge cases
+- [ ] Unit + Integration + API tests do happy path e edge cases — **só existe `RecurrenceProjectorTests`** (unit de domínio)

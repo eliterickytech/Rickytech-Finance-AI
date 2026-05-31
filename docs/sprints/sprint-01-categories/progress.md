@@ -1,23 +1,29 @@
 # Sprint 1 - Progress
 
+> **Legenda:** ✅ Implementado · 🟡 Parcial · ❌ Pendente
+
 ## Diário
-_(preencher a cada dia útil)_
+
+### 2026-05-31 (Auditoria de código)
+- CRUD de Categorias completo: entidade `Category`, `CategoryType`, value object `HexColor`, CQRS (Create/Update/Delete + GetAll/GetById), `CategoriasController`, validators e seed (`DatabaseSeeder`).
+- Testes de domínio presentes (`CategoryTests`).
+- ⚠️ **Migration inicial NÃO foi gerada** — pasta `Migrations/` só tem `.gitkeep`. Bloqueia subir o banco.
 
 ## Status das US
 
-| US                                   | Status      |
-|--------------------------------------|-------------|
-| US-S1-01 DbContext + provider        | ⏸ pendente |
-| US-S1-02 Entidade Category           | ⏸ pendente |
-| US-S1-03 Migration inicial           | ⏸ pendente |
-| US-S1-04 Commands CRUD               | ⏸ pendente |
-| US-S1-05 Queries                     | ⏸ pendente |
-| US-S1-06 Controller                  | ⏸ pendente |
-| US-S1-07 Seed                        | ⏸ pendente |
-| US-S1-08 Testes                      | ⏸ pendente |
+| US                                   | Status          |
+|--------------------------------------|-----------------|
+| US-S1-01 DbContext + provider        | ✅ Implementado |
+| US-S1-02 Entidade Category           | ✅ Implementado |
+| US-S1-03 Migration inicial           | ❌ Pendente (não gerada) |
+| US-S1-04 Commands CRUD               | ✅ Implementado |
+| US-S1-05 Queries                     | ✅ Implementado |
+| US-S1-06 Controller                  | ✅ Implementado |
+| US-S1-07 Seed                        | ✅ Implementado |
+| US-S1-08 Testes                      | 🟡 Parcial (só `CategoryTests` de domínio; faltam handler/integração/API) |
 
 ## Bloqueios
-_(nenhum)_
+- **Migration do EF Core ausente** — necessário rodar `dotnet ef migrations add InitialCreate` antes da demo.
 
 ## Demo prevista
 - Swagger: criar / listar / atualizar / deletar categorias

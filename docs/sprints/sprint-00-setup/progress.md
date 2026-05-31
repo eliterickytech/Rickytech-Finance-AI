@@ -1,6 +1,8 @@
 # Sprint 0 - Progress
 
 > Atualize esta página **diariamente** (data → o que andou → o que travou).
+>
+> **Legenda:** ✅ Implementado · 🟡 Parcial · ❌ Pendente
 
 ## Diário
 
@@ -11,27 +13,29 @@
 - `BaseApiController`, `ApiResponse<T>`, middlewares de Exception e CorrelationId escritos.
 - ValidationBehavior do MediatR criado.
 
-### (próximo dia)
-- ...
+### 2026-05-31 (Auditoria de código)
+- Revisão completa do código-fonte para sincronizar a documentação com a realidade.
+- Sprint 0 concluída: solution, DI, middlewares, Serilog, Swagger/CORS/Health e pipeline behaviors presentes.
+- CI/CD (`.github/workflows/ci.yml`) já existe → US-S0-10 marcada como implementada.
 
 ## Status das US
 
-| US                                  | Status      |
-|-------------------------------------|-------------|
-| US-S0-01 Solution e projetos        | ⏳ em curso |
-| US-S0-02 Pacotes NuGet base         | ⏳ em curso |
-| US-S0-03 BaseApiController          | ✅ inicial  |
-| US-S0-04 Middlewares                | ✅ inicial  |
-| US-S0-05 Serilog                    | ⏳ em curso |
-| US-S0-06 CrossCutting DI            | ✅ inicial  |
-| US-S0-07 Pipeline behaviors         | ✅ inicial  |
-| US-S0-08 Swagger + CORS + Health    | ⏳ em curso |
-| US-S0-09 Interfaces Application     | ✅ inicial  |
-| US-S0-10 CI/CD                      | ⏸ pendente |
-| US-S0-11 Doc SDD                    | ⏳ em curso |
+| US                                  | Status          |
+|-------------------------------------|-----------------|
+| US-S0-01 Solution e projetos        | ✅ Implementado |
+| US-S0-02 Pacotes NuGet base         | ✅ Implementado |
+| US-S0-03 BaseApiController          | ✅ Implementado |
+| US-S0-04 Middlewares                | ✅ Implementado |
+| US-S0-05 Serilog                    | ✅ Implementado |
+| US-S0-06 CrossCutting DI            | ✅ Implementado |
+| US-S0-07 Pipeline behaviors         | ✅ Implementado |
+| US-S0-08 Swagger + CORS + Health    | ✅ Implementado |
+| US-S0-09 Interfaces Application     | ✅ Implementado |
+| US-S0-10 CI/CD                      | ✅ Implementado |
+| US-S0-11 Doc SDD                    | ✅ Implementado |
 
 ## Bloqueios
-_(nenhum até o momento)_
+_(nenhum)_
 
 ## Demo prevista
 - Subir API em `https://localhost:5001`

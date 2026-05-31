@@ -19,6 +19,39 @@ Projeto dividido em **13 sprints** (Sprint 0 a Sprint 12). Sprints curtos
 | **11** | Frontend: integrações + painel de notícias |        | ●        | 2 sem  |
 | **12** | Testes (xUnit / Vitest), hardening, deploy | ●      | ●        | 2 sem  |
 
+## Status atual (snapshot 2026-05-31)
+
+> Auditoria feita a partir do **código-fonte** (os `progress.md` haviam ficado
+> desatualizados). Legenda: ✅ Concluído · 🟡 Parcial · ❌ Pendente.
+
+| Sprint | Tema | Status |
+|--------|------|:------:|
+| 00 | Setup / arquitetura / CI | ✅ |
+| 01 | CRUD Categorias | ✅ (falta migration) |
+| 02 | CRUD Bancos | ✅ (falta migration) |
+| 03 | Receitas / Despesas / recorrência | ✅ (testes parciais) |
+| 04 | Investimentos | 🟡 (sem validators) |
+| 05 | Projeções | 🟡 (sem service dedicado/cache/testes) |
+| 06 | Binance | ✅ (sem testes) |
+| 07 | OpenFinance | ✅ (categorização a validar) |
+| 08 | Notícias | ✅ (sem testes) |
+| 09 | Frontend setup | ✅ (sem testes Vitest) |
+| 10 | Frontend CRUDs | ✅ |
+| 11 | Frontend integrações | ✅ (sem testes) |
+| 12 | Testes / deploy | 🟡 |
+
+### 🔴 Bloqueio transversal
+**Migrations do EF Core não foram geradas** (`backend/src/FinanceControl.Data/Migrations/`
+só tem `.gitkeep`). DbContext, Configurations e Seeder existem, mas sem migration
+o banco não sobe. É o pré-requisito nº 1 para rodar a aplicação.
+
+### Lacunas principais
+- Migration inicial do EF Core (bloqueante).
+- Cobertura de testes baixa (4 testes de domínio; sem Application/integração/E2E/Vitest).
+- Auth sem endpoint de **registro** no backend (frontend já tem a tela).
+- Validators ausentes em Investments e Projections.
+- Limpeza: pasta literal `frontend/src/store/{slices}` criada por engano.
+
 ## Marcos (milestones)
 
 - **M1 - Backend MVP funcional** → fim do Sprint 5 (CRUDs + Projeções)
