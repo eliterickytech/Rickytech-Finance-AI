@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  backend:
+    name: Backend (.NET 10) build + test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          include-prerelease: true
+
+      - name: Restore
+        run: dotnet restore backend/FinanceControl.sln
+
+      - name: Build
+        run: dotnet build backend/FinanceControl.sln --configuration Release --no-restore
+
+      - name: Test (+coverage)
+        run: dotnet test backend/FinanceControl.sln --configuration Release --no-build --collect:"XPlat Code Coverage"
+
+  frontend:
+    name: Frontend (React) build + lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build

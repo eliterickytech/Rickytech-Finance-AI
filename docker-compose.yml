@@ -1,0 +1,56 @@
+# =====================================================================
+# Finance Control - docker-compose para ambiente local
+# =====================================================================
+services:
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fc-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__FinanceControlDb: "Server=sql,1433;Database=FinanceControl;User Id=sa;Password=Finance@2026;TrustServerCertificate=True"
+      Database__Provider: SqlServer
+      KeyVault__MasterKey: "ChangeMe_FinanceControl_MasterKey_32B!"
+    depends_on:
+      - sql
+      - seq
+    ports:
+      - "5001:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fc-frontend
+    depends_on:
+      - api
+    ports:
+      - "3000:80"
+
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: fc-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Finance@2026"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - fc-sql-data:/var/opt/mssql
+
+  seq:
+    image: datalust/seq:latest
+    container_name: fc-seq
+    environment:
+      ACCEPT_EULA: "Y"
+    ports:
+      - "5341:80"
+    volumes:
+      - fc-seq-data:/data
+
+volumes:
+  fc-sql-data:
+  fc-seq-data:

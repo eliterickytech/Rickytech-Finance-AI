@@ -1,0 +1,62 @@
+# .NET
+**/bin/
+**/obj/
+**/*.user
+**/*.suo
+**/*.userprefs
+*.swp
+*.swo
+.vs/
+.vscode/
+.idea/
+*.cache
+artifacts/
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# EF Core
+**/Migrations/*.Designer.cs.bak
+
+# Logs
+logs/
+*.log
+**/serilog-*.log
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+FinanceControl.mdf
+FinanceControl_log.ldf
+
+# Node / React
+**/node_modules/
+**/dist/
+**/.cache/
+**/.parcel-cache/
+**/build/
+**/coverage/
+.next/
+.nuxt/
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+*.iml
+*.ipr
+*.iws
+
+# Secrets / config locais
+**/appsettings.Local.json
+**/secrets.json
+*.pfx
+*.pem

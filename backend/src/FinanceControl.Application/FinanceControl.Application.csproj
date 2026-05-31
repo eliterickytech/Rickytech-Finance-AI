@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <!-- CQRS / Mediator -->
+    <PackageReference Include="MediatR" Version="12.4.1" />
+
+    <!-- Mapper - v14 corrige CVE GHSA-rvv3-g6hj-g44x e integra DI extensions no pacote principal -->
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+
+    <!-- Validation -->
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
+
+    <!-- DI Abstractions -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FinanceControl.Domain\FinanceControl.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

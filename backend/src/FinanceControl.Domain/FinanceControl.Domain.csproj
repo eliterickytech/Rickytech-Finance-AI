@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Domain Layer - sem dependencias externas, apenas BCL -->
+  </PropertyGroup>
+
+</Project>

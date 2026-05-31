@@ -1,0 +1,34 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <Company>Rickytech</Company>
+    <Product>Finance Control</Product>
+    <Copyright>Copyright (c) Rickytech 2026</Copyright>
+
+    <!--
+      NU1903 = NuGet Audit, vulnerabilidades conhecidas em pacotes.
+
+      Mantemos como WARNING (não Error) por um motivo bem específico:
+      a CVE-2026-32933 (GHSA-rvv3-g6hj-g44x) do AutoMapper só recebeu
+      patch nas versões 15.x/16.x, que viraram COMERCIAIS (pago).
+      As versões 13.x/14.x ainda eram MIT mas não receberão fix.
+
+      Mitigação aplicada no código (AutoMapper config):
+        cfg.ForAllMaps((_, e) => e.MaxDepth(64))
+      bloqueia o vetor de stack overflow da CVE.
+
+      Roadmap: migrar para Mapster (free, MIT, mantido) para zerar a
+      dependência. Ver docs/runbook.md - seção "Roadmap de dependências".
+
+      Demais pacotes vulneráveis devem ser atualizados normalmente
+      (ex.: System.Security.Cryptography.Xml -> 9.0.15 / 10.0.6).
+    -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1903</WarningsNotAsErrors>
+  </PropertyGroup>
+</Project>
